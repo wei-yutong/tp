@@ -34,6 +34,12 @@ public class PawbookParser {
      * @throws ParseException if the user input does not conform the expected format
      */
     public Command parseCommand(String userInput) throws ParseException {
+        String[] userInputArr = userInput.split(" ");
+        String entityType = null;
+        if (!userInputArr[1].contains("/")) {
+            entityType = userInputArr[1];
+        }
+
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
@@ -44,7 +50,8 @@ public class PawbookParser {
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+            assert entityType != null;
+            return new AddCommandParser().process(entityType).parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
