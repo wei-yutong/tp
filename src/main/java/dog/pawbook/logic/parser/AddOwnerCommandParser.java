@@ -10,7 +10,6 @@ import static dog.pawbook.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import dog.pawbook.logic.commands.AddCommand;
 import dog.pawbook.logic.commands.AddOwnerCommand;
 import dog.pawbook.logic.parser.exceptions.ParseException;
 import dog.pawbook.model.person.Address;
@@ -21,13 +20,13 @@ import dog.pawbook.model.person.Phone;
 import dog.pawbook.model.tag.Tag;
 
 /**
- * Parses input arguments and creates a new AddCommand object
+ * Parses input arguments and creates a new AddOwnerCommand object
  */
 public class AddOwnerCommandParser implements Parser<AddOwnerCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddCommand
-     * and returns an AddCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the AddOwnerCommand
+     * and returns an AddOwnerCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddOwnerCommand parse(String args) throws ParseException {
@@ -36,7 +35,7 @@ public class AddOwnerCommandParser implements Parser<AddOwnerCommand> {
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddOwnerCommand.MESSAGE_USAGE));
         }
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());

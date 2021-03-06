@@ -57,7 +57,8 @@ public class PawbookParser {
             return new EditCommandParser().parse(arguments);
 
         case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
+            assert entityType != null;
+            return new DeleteCommandParser().process(entityType).parse(arguments);
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
