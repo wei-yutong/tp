@@ -22,9 +22,10 @@ import dog.pawbook.logic.parser.exceptions.ParseException;
 public class PawbookParser {
 
     /**
-     * Used for initial separation of command word and args.
+     * Used for initial separation of command word, entity type, and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)"
+            + "(?<entityType>(owner|program|dog))?(?<arguments>.*)");
 
     /**
      * Parses user input into command for execution.
@@ -41,6 +42,8 @@ public class PawbookParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
+        final String entityType = matcher.group("entityType");
+
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
