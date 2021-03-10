@@ -6,9 +6,9 @@ import static dog.pawbook.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dog.pawbook.logic.commands.AddCommand;
+import dog.pawbook.logic.commands.AddOwnerCommand;
 import dog.pawbook.logic.commands.Command;
-import dog.pawbook.logic.commands.DeleteCommand;
+import dog.pawbook.logic.commands.DeleteOwnerCommand;
 import dog.pawbook.logic.commands.EditCommand;
 import dog.pawbook.logic.commands.ExitCommand;
 import dog.pawbook.logic.commands.FindCommand;
@@ -46,14 +46,14 @@ public class PawbookParser {
 
         switch (commandWord) {
 
-        case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+        case AddOwnerCommand.COMMAND_WORD:
+            return new AddOwnerCommandParser().parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
 
-        case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
+        case DeleteOwnerCommand.COMMAND_WORD:
+            return new DeleteOwnerCommandParser().parse(arguments);
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);

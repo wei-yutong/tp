@@ -14,7 +14,7 @@ import dog.pawbook.model.owner.Owner;
 /**
  * Adds a owner to the address book.
  */
-public class AddCommand extends Command {
+public class AddOwnerCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
@@ -39,9 +39,9 @@ public class AddCommand extends Command {
     private final Owner toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Owner}
+     * Creates an AddOwnerCommand to add the specified {@code Owner}
      */
-    public AddCommand(Owner owner) {
+    public AddOwnerCommand(Owner owner) {
         requireNonNull(owner);
         toAdd = owner;
     }
@@ -61,7 +61,7 @@ public class AddCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddCommand) other).toAdd));
+                || (other instanceof AddOwnerCommand // instanceof handles nulls
+                && toAdd.equals(((AddOwnerCommand) other).toAdd));
     }
 }
