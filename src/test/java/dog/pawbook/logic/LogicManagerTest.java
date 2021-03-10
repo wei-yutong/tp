@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import dog.pawbook.logic.commands.AddCommand;
+import dog.pawbook.logic.commands.AddOwnerCommand;
 import dog.pawbook.logic.commands.CommandResult;
 import dog.pawbook.logic.commands.ListCommand;
 import dog.pawbook.logic.commands.exceptions.CommandException;
@@ -79,7 +79,7 @@ public class LogicManagerTest {
         logic = new LogicManager(model, storage);
 
         // Execute add command
-        String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
+        String addCommand = AddOwnerCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_AMY;
         Owner expectedOwner = new OwnerBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();

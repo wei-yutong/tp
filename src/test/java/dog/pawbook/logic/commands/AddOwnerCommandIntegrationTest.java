@@ -14,9 +14,9 @@ import dog.pawbook.model.owner.Owner;
 import dog.pawbook.testutil.OwnerBuilder;
 
 /**
- * Contains integration tests (interaction with the Model) for {@code AddCommand}.
+ * Contains integration tests (interaction with the Model) for {@code AddOwnerCommand}.
  */
-public class AddCommandIntegrationTest {
+public class AddOwnerCommandIntegrationTest {
 
     private Model model;
 
@@ -32,14 +32,14 @@ public class AddCommandIntegrationTest {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.addOwner(validOwner);
 
-        assertCommandSuccess(new AddCommand(validOwner), model,
-                String.format(AddCommand.MESSAGE_SUCCESS, validOwner), expectedModel);
+        assertCommandSuccess(new AddOwnerCommand(validOwner), model,
+                String.format(AddOwnerCommand.MESSAGE_SUCCESS, validOwner), expectedModel);
     }
 
     @Test
     public void execute_duplicateOwner_throwsCommandException() {
         Owner ownerInList = model.getAddressBook().getOwnerList().get(0);
-        assertCommandFailure(new AddCommand(ownerInList), model, AddCommand.MESSAGE_DUPLICATE_OWNER);
+        assertCommandFailure(new AddOwnerCommand(ownerInList), model, AddOwnerCommand.MESSAGE_DUPLICATE_OWNER);
     }
 
 }

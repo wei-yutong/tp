@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import dog.pawbook.logic.commands.AddCommand;
+import dog.pawbook.logic.commands.AddOwnerCommand;
 import dog.pawbook.logic.commands.DeleteCommand;
 import dog.pawbook.logic.commands.EditCommand;
 import dog.pawbook.logic.commands.EditCommand.EditOwnerDescriptor;
@@ -35,8 +35,8 @@ public class PawbookParserTest {
     @Test
     public void parseCommand_add() throws Exception {
         Owner owner = new OwnerBuilder().build();
-        AddCommand command = (AddCommand) parser.parseCommand(OwnerUtil.getAddCommand(owner));
-        assertEquals(new AddCommand(owner), command);
+        AddOwnerCommand command = (AddOwnerCommand) parser.parseCommand(OwnerUtil.getAddCommand(owner));
+        assertEquals(new AddOwnerCommand(owner), command);
     }
 
     @Test

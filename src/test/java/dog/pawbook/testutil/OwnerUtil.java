@@ -8,7 +8,7 @@ import static dog.pawbook.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
 
-import dog.pawbook.logic.commands.AddCommand;
+import dog.pawbook.logic.commands.AddOwnerCommand;
 import dog.pawbook.logic.commands.EditCommand.EditOwnerDescriptor;
 import dog.pawbook.model.owner.Owner;
 import dog.pawbook.model.tag.Tag;
@@ -22,7 +22,7 @@ public class OwnerUtil {
      * Returns an add command string for adding the {@code owner}.
      */
     public static String getAddCommand(Owner owner) {
-        return AddCommand.COMMAND_WORD + " " + getOwnerDetails(owner);
+        return AddOwnerCommand.COMMAND_WORD + " " + getOwnerDetails(owner);
     }
 
     /**
